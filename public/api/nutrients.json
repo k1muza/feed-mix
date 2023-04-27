@@ -1,0 +1,194 @@
+[
+    {
+        "id": 1,
+        "name": "DRY MATTER",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 2,
+        "name": "CRUDE PROTEIN",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 3,
+        "name": "FAT-ether extract",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 4,
+        "name": "CRUDE FIBER",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 5,
+        "name": "CALCIUM",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 6,
+        "name": "PHOSPHORUS total",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 7,
+        "name": "PHOSPHORUS available",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 8,
+        "name": "SODIUM",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 9,
+        "name": "CHLORIDE",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 10,
+        "name": "POTASSIUM",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 11,
+        "name": "SULFUR",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 12,
+        "name": "ME",
+        "description": "",
+        "unit": "kcal/lb"
+    },
+    {
+        "id": 13,
+        "name": "ME",
+        "description": "",
+        "unit": "kcal/kg"
+    },
+    {
+        "id": 14,
+        "name": "ME",
+        "description": "",
+        "unit": "MJ/kg"
+    },
+    {
+        "id": 15,
+        "name": "LINOLEIC ACID",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 16,
+        "name": "CHOLINE",
+        "description": "",
+        "unit": "mg/kg"
+    },
+    {
+        "id": 17,
+        "name": "lysine total",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 18,
+        "name": "lysine digestible",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 19,
+        "name": "methionine total",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 20,
+        "name": "methionine digestible",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 21,
+        "name": "cystine total",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 22,
+        "name": "cystine digestible",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 23,
+        "name": "threonine total",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 24,
+        "name": "threonine digestible",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 25,
+        "name": "tryptophan total",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 26,
+        "name": "tryptophan digestible",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 27,
+        "name": "arginine total",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 28,
+        "name": "arginine digestible",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 29,
+        "name": "isoleucine total",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 30,
+        "name": "isoleucine digestible",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 31,
+        "name": "valine total",
+        "description": "",
+        "unit": "%"
+    },
+    {
+        "id": 32,
+        "name": "valine digestible",
+        "description": "",
+        "unit": "%"
+    }
+]

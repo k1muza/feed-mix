@@ -1,0 +1,1150 @@
+[
+    {
+        "id": 2,
+        "name": "Broiler Starter Mash",
+        "description": "",
+        "nutrients": [
+            {
+                "id": 33,
+                "value": 89.0,
+                "nutrient": {
+                    "id": 1,
+                    "name": "DRY MATTER",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 34,
+                "value": 25.7,
+                "nutrient": {
+                    "id": 2,
+                    "name": "CRUDE PROTEIN",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 35,
+                "value": 1.4,
+                "nutrient": {
+                    "id": 3,
+                    "name": "FAT-ether extract",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 36,
+                "value": 8.2,
+                "nutrient": {
+                    "id": 4,
+                    "name": "CRUDE FIBER",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 37,
+                "value": 0.14,
+                "nutrient": {
+                    "id": 5,
+                    "name": "CALCIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 38,
+                "value": 0.54,
+                "nutrient": {
+                    "id": 6,
+                    "name": "PHOSPHORUS total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 39,
+                "value": 0.2,
+                "nutrient": {
+                    "id": 7,
+                    "name": "PHOSPHORUS available",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 40,
+                "value": 0.08,
+                "nutrient": {
+                    "id": 8,
+                    "name": "SODIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 41,
+                "value": 0.04,
+                "nutrient": {
+                    "id": 9,
+                    "name": "CHLORIDE",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 42,
+                "value": 1.2,
+                "nutrient": {
+                    "id": 10,
+                    "name": "POTASSIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 43,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 11,
+                    "name": "SULFUR",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 44,
+                "value": 1100.0,
+                "nutrient": {
+                    "id": 12,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "kcal/lb"
+                }
+            },
+            {
+                "id": 45,
+                "value": 2420.0,
+                "nutrient": {
+                    "id": 13,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "kcal/kg"
+                }
+            },
+            {
+                "id": 46,
+                "value": 10.13,
+                "nutrient": {
+                    "id": 14,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "MJ/kg"
+                }
+            },
+            {
+                "id": 47,
+                "value": 0.9,
+                "nutrient": {
+                    "id": 15,
+                    "name": "LINOLEIC ACID",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 48,
+                "value": 1670.0,
+                "nutrient": {
+                    "id": 16,
+                    "name": "CHOLINE",
+                    "description": "",
+                    "unit": "mg/kg"
+                }
+            },
+            {
+                "id": 49,
+                "value": 1.52,
+                "nutrient": {
+                    "id": 17,
+                    "name": "lysine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 50,
+                "value": 1.29,
+                "nutrient": {
+                    "id": 18,
+                    "name": "lysine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 51,
+                "value": 0.25,
+                "nutrient": {
+                    "id": 19,
+                    "name": "methionine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 52,
+                "value": 0.18,
+                "nutrient": {
+                    "id": 20,
+                    "name": "methionine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 53,
+                "value": 0.14,
+                "nutrient": {
+                    "id": 21,
+                    "name": "cystine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 54,
+                "value": 0.09,
+                "nutrient": {
+                    "id": 22,
+                    "name": "cystine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 55,
+                "value": 0.98,
+                "nutrient": {
+                    "id": 23,
+                    "name": "threonine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 56,
+                "value": 0.77,
+                "nutrient": {
+                    "id": 24,
+                    "name": "threonine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 57,
+                "value": 0.24,
+                "nutrient": {
+                    "id": 25,
+                    "name": "tryptophan total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 58,
+                "value": 0.16,
+                "nutrient": {
+                    "id": 26,
+                    "name": "tryptophan digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 59,
+                "value": 2.2,
+                "nutrient": {
+                    "id": 27,
+                    "name": "arginine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 60,
+                "value": 1.91,
+                "nutrient": {
+                    "id": 28,
+                    "name": "arginine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 61,
+                "value": 1.0,
+                "nutrient": {
+                    "id": 29,
+                    "name": "isoleucine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 62,
+                "value": 0.73,
+                "nutrient": {
+                    "id": 30,
+                    "name": "isoleucine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 63,
+                "value": 1.22,
+                "nutrient": {
+                    "id": 31,
+                    "name": "valine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 64,
+                "value": 0.88,
+                "nutrient": {
+                    "id": 32,
+                    "name": "valine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Broiler Grower Mash",
+        "description": "",
+        "nutrients": [
+            {
+                "id": 65,
+                "value": 99.0,
+                "nutrient": {
+                    "id": 1,
+                    "name": "DRY MATTER",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 66,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 2,
+                    "name": "CRUDE PROTEIN",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 67,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 3,
+                    "name": "FAT-ether extract",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 68,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 4,
+                    "name": "CRUDE FIBER",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 69,
+                "value": 38.0,
+                "nutrient": {
+                    "id": 5,
+                    "name": "CALCIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 70,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 6,
+                    "name": "PHOSPHORUS total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 71,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 7,
+                    "name": "PHOSPHORUS available",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 72,
+                "value": 0.06,
+                "nutrient": {
+                    "id": 8,
+                    "name": "SODIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 73,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 9,
+                    "name": "CHLORIDE",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 74,
+                "value": 0.06,
+                "nutrient": {
+                    "id": 10,
+                    "name": "POTASSIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 75,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 11,
+                    "name": "SULFUR",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 76,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 12,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "kcal/lb"
+                }
+            },
+            {
+                "id": 77,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 13,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "kcal/kg"
+                }
+            },
+            {
+                "id": 78,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 14,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "MJ/kg"
+                }
+            },
+            {
+                "id": 79,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 15,
+                    "name": "LINOLEIC ACID",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 80,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 16,
+                    "name": "CHOLINE",
+                    "description": "",
+                    "unit": "mg/kg"
+                }
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Boar Mash",
+        "description": "",
+        "nutrients": [
+            {
+                "id": 81,
+                "value": 91.0,
+                "nutrient": {
+                    "id": 1,
+                    "name": "DRY MATTER",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 82,
+                "value": 38.0,
+                "nutrient": {
+                    "id": 2,
+                    "name": "CRUDE PROTEIN",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 83,
+                "value": 3.8,
+                "nutrient": {
+                    "id": 3,
+                    "name": "FAT-ether extract",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 84,
+                "value": 11.1,
+                "nutrient": {
+                    "id": 4,
+                    "name": "CRUDE FIBER",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 85,
+                "value": 0.68,
+                "nutrient": {
+                    "id": 5,
+                    "name": "CALCIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 86,
+                "value": 1.2,
+                "nutrient": {
+                    "id": 6,
+                    "name": "PHOSPHORUS total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 87,
+                "value": 0.4,
+                "nutrient": {
+                    "id": 7,
+                    "name": "PHOSPHORUS available",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 88,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 8,
+                    "name": "SODIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 89,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 9,
+                    "name": "CHLORIDE",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 90,
+                "value": 1.29,
+                "nutrient": {
+                    "id": 10,
+                    "name": "POTASSIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 91,
+                "value": 1.0,
+                "nutrient": {
+                    "id": 11,
+                    "name": "SULFUR",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 92,
+                "value": 960.0,
+                "nutrient": {
+                    "id": 12,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "kcal/lb"
+                }
+            },
+            {
+                "id": 93,
+                "value": 2110.0,
+                "nutrient": {
+                    "id": 13,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "kcal/kg"
+                }
+            },
+            {
+                "id": 94,
+                "value": 8.83,
+                "nutrient": {
+                    "id": 14,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "MJ/kg"
+                }
+            },
+            {
+                "id": 95,
+                "value": 0.0,
+                "nutrient": {
+                    "id": 15,
+                    "name": "LINOLEIC ACID",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 96,
+                "value": 6700.0,
+                "nutrient": {
+                    "id": 16,
+                    "name": "CHOLINE",
+                    "description": "",
+                    "unit": "mg/kg"
+                }
+            },
+            {
+                "id": 97,
+                "value": 2.02,
+                "nutrient": {
+                    "id": 17,
+                    "name": "lysine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 98,
+                "value": 1.6,
+                "nutrient": {
+                    "id": 18,
+                    "name": "lysine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 99,
+                "value": 0.77,
+                "nutrient": {
+                    "id": 19,
+                    "name": "methionine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 100,
+                "value": 0.69,
+                "nutrient": {
+                    "id": 20,
+                    "name": "methionine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 101,
+                "value": 0.97,
+                "nutrient": {
+                    "id": 21,
+                    "name": "cystine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 102,
+                "value": 0.71,
+                "nutrient": {
+                    "id": 22,
+                    "name": "cystine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 103,
+                "value": 1.5,
+                "nutrient": {
+                    "id": 23,
+                    "name": "threonine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 104,
+                "value": 1.17,
+                "nutrient": {
+                    "id": 24,
+                    "name": "threonine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 105,
+                "value": 0.46,
+                "nutrient": {
+                    "id": 25,
+                    "name": "tryptophan total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 106,
+                "value": 0.38,
+                "nutrient": {
+                    "id": 26,
+                    "name": "tryptophan digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 107,
+                "value": 2.3,
+                "nutrient": {
+                    "id": 27,
+                    "name": "arginine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 108,
+                "value": 2.07,
+                "nutrient": {
+                    "id": 28,
+                    "name": "arginine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 109,
+                "value": 1.51,
+                "nutrient": {
+                    "id": 29,
+                    "name": "isoleucine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 110,
+                "value": 1.25,
+                "nutrient": {
+                    "id": 30,
+                    "name": "isoleucine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 111,
+                "value": 1.94,
+                "nutrient": {
+                    "id": 31,
+                    "name": "valine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 112,
+                "value": 1.59,
+                "nutrient": {
+                    "id": 32,
+                    "name": "valine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Pregnant Soar Mash",
+        "description": "",
+        "nutrients": [
+            {
+                "id": 113,
+                "value": 86.0,
+                "nutrient": {
+                    "id": 1,
+                    "name": "DRY MATTER",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 114,
+                "value": 7.5,
+                "nutrient": {
+                    "id": 2,
+                    "name": "CRUDE PROTEIN",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 115,
+                "value": 3.5,
+                "nutrient": {
+                    "id": 3,
+                    "name": "FAT-ether extract",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 116,
+                "value": 1.9,
+                "nutrient": {
+                    "id": 4,
+                    "name": "CRUDE FIBER",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 117,
+                "value": 0.01,
+                "nutrient": {
+                    "id": 5,
+                    "name": "CALCIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 118,
+                "value": 0.28,
+                "nutrient": {
+                    "id": 6,
+                    "name": "PHOSPHORUS total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 119,
+                "value": 0.12,
+                "nutrient": {
+                    "id": 7,
+                    "name": "PHOSPHORUS available",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 120,
+                "value": 0.02,
+                "nutrient": {
+                    "id": 8,
+                    "name": "SODIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 121,
+                "value": 0.04,
+                "nutrient": {
+                    "id": 9,
+                    "name": "CHLORIDE",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 122,
+                "value": 0.33,
+                "nutrient": {
+                    "id": 10,
+                    "name": "POTASSIUM",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 123,
+                "value": 0.08,
+                "nutrient": {
+                    "id": 11,
+                    "name": "SULFUR",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 124,
+                "value": 1530.0,
+                "nutrient": {
+                    "id": 12,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "kcal/lb"
+                }
+            },
+            {
+                "id": 125,
+                "value": 3373.0,
+                "nutrient": {
+                    "id": 13,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "kcal/kg"
+                }
+            },
+            {
+                "id": 126,
+                "value": 14.11,
+                "nutrient": {
+                    "id": 14,
+                    "name": "ME",
+                    "description": "",
+                    "unit": "MJ/kg"
+                }
+            },
+            {
+                "id": 127,
+                "value": 1.9,
+                "nutrient": {
+                    "id": 15,
+                    "name": "LINOLEIC ACID",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 128,
+                "value": 1100.0,
+                "nutrient": {
+                    "id": 16,
+                    "name": "CHOLINE",
+                    "description": "",
+                    "unit": "mg/kg"
+                }
+            },
+            {
+                "id": 129,
+                "value": 0.24,
+                "nutrient": {
+                    "id": 17,
+                    "name": "lysine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 130,
+                "value": 0.19,
+                "nutrient": {
+                    "id": 18,
+                    "name": "lysine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 131,
+                "value": 0.18,
+                "nutrient": {
+                    "id": 19,
+                    "name": "methionine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 132,
+                "value": 0.16,
+                "nutrient": {
+                    "id": 20,
+                    "name": "methionine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 133,
+                "value": 0.18,
+                "nutrient": {
+                    "id": 21,
+                    "name": "cystine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 134,
+                "value": 0.15,
+                "nutrient": {
+                    "id": 22,
+                    "name": "cystine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 135,
+                "value": 0.29,
+                "nutrient": {
+                    "id": 23,
+                    "name": "threonine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 136,
+                "value": 0.24,
+                "nutrient": {
+                    "id": 24,
+                    "name": "threonine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 137,
+                "value": 0.07,
+                "nutrient": {
+                    "id": 25,
+                    "name": "tryptophan total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 138,
+                "value": 0.06,
+                "nutrient": {
+                    "id": 26,
+                    "name": "tryptophan digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 139,
+                "value": 0.4,
+                "nutrient": {
+                    "id": 27,
+                    "name": "arginine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 140,
+                "value": 0.36,
+                "nutrient": {
+                    "id": 28,
+                    "name": "arginine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 141,
+                "value": 0.29,
+                "nutrient": {
+                    "id": 29,
+                    "name": "isoleucine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 142,
+                "value": 0.26,
+                "nutrient": {
+                    "id": 30,
+                    "name": "isoleucine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 143,
+                "value": 0.42,
+                "nutrient": {
+                    "id": 31,
+                    "name": "valine total",
+                    "description": "",
+                    "unit": "%"
+                }
+            },
+            {
+                "id": 144,
+                "value": 0.37,
+                "nutrient": {
+                    "id": 32,
+                    "name": "valine digestible",
+                    "description": "",
+                    "unit": "%"
+                }
+            }
+        ]
+    }
+]
