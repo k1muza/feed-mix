@@ -1,42 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
-import IngredientGraph from "../components/graphs/IngredientGraph";
-import { getIngredient, getIngredients } from "../api";
+import { NavLink, useParams } from "react-router-dom";
 
-interface Nutrient {
-    id: number;
-    value: number;
-    description: string;
-    nutrient: {
-        id: number;
-        name: string;
-        description: string;
-        unit: string;
-    }
-}
-
-interface Ingredient {
-    id: number;
-    name: string;
-    description: string;
-    unit: string;
-    nutrients: Nutrient[];
-}
+import { getDefaultIngredient, getIngredient } from "../../api";
+import IngredientGraph from "../../components/graphs/IngredientGraph";
+import { Ingredient } from "../../interfaces/ingredient";
+import { NutrientConcentration } from "../../interfaces/nutrientConcentration";
 
 const IngredientDetail: React.FC = () => {
     const { id } = useParams();
     const [ingredient, setIngredient] = useState<Ingredient>();
-    const [nutrients, setNutrients] = useState<Nutrient[]>([]);
+    const [values, setValues] = useState<number[]>([])
+    const [labels, setLabels] = useState<string[]>([])
 
     useEffect(() => {
-        const ingredientId = id ? parseInt(id) : 1;
-        getIngredient(ingredientId)
+        const promise: Promise<Ingredient> = id ? getIngredient(parseInt(id)) : getDefaultIngredient();
+        
+        promise
             .then(ingredient => {
                 setIngredient(ingredient)
-                const newNutrients = ingredient.nutrients.filter((nutrient: Nutrient) => {
+                const nutrients = ingredient.nutrients.filter((nutrient: NutrientConcentration) => {
                     return nutrient.value && nutrient.nutrient.unit === '%' && nutrient.nutrient.name.toLowerCase() !== 'dry matter'
                 })
-                setNutrients(newNutrients)
+                const newValues: number[] = []
+                const newLabels: string[] = []
+                nutrients.forEach((n: NutrientConcentration) => {
+                    newLabels.push(n.nutrient.name)
+                    newValues.push(n.value)
+                })
+                setValues(newValues)
+                setLabels(newLabels)
             });
     }, [id]);
 
@@ -48,9 +40,6 @@ const IngredientDetail: React.FC = () => {
                     <button className="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-300">
                         Save
                     </button>
-                    <button className="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium bg-red-200 rounded hover:bg-gray-300">
-                        Delete
-                    </button>
                     <button className="relative ml-2 text-sm focus:outline-none group">
                         <div className="flex items-center justify-between w-10 h-10 rounded hover:bg-gray-300">
                             <svg className="w-5 h-5 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,14 +47,17 @@ const IngredientDetail: React.FC = () => {
                             </svg>
                         </div>
                         <div className="absolute right-0 flex-col items-start hidden w-40 pb-1 bg-white border border-gray-300 shadow-lg group-focus:flex">
-                            <a className="w-full px-4 py-2 text-left hover:bg-gray-300" href="#">Menu Item 1</a>
-                            <a className="w-full px-4 py-2 text-left hover:bg-gray-300" href="#">Menu Item 1</a>
-                            <a className="w-full px-4 py-2 text-left hover:bg-gray-300" href="#">Menu Item 1</a>
+                            <NavLink
+                                to={`/feeds/${ingredient?.id}/delete`}
+                                className="w-full px-4 py-2 text-left hover:bg-gray-300"
+                            >
+                                Delete Ingredient
+                            </NavLink>
                         </div>
                     </button>
                 </div>
             </div>
-            {ingredient && nutrients && <IngredientGraph ingredient={ingredient} nutrients={nutrients} /> }
+            {labels?.length && values?.length && <IngredientGraph labels={labels} values={values} />}
         </div>
     );
 };

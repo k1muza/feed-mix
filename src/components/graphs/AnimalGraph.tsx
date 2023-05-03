@@ -12,44 +12,9 @@ import {
     DataZoomSliderComponent,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
-import { getAnimals } from '../../api';
+import { GraphProps } from '../../interfaces/graphProps';
 
-interface Nutrient {
-    id: number;
-    value: number;
-    description: string;
-    nutrient: {
-        id: number;
-        name: string;
-        description: string;
-        unit: string;
-    }
-}
-
-interface Animal {
-    id: number;
-    name: string;
-    description: string;
-    unit: string;
-    nutrients: Nutrient[];
-}
-
-export default function AnimalGraph() {
-    const [animal, setAnimal] = useState<Animal>();
-    const [nutrients, setNutrients] = useState<Nutrient[]>([]);
-    
-    useEffect(() => {
-        getAnimals()
-            .then(response => {
-                const animal = response.data.find((animal: Animal) => animal.id === 5)
-                setAnimal(animal)
-                const newNutrients = animal.nutrients.filter((nutrient: Nutrient) => {
-                    return nutrient.value && nutrient.nutrient.unit === '%' && nutrient.nutrient.name.toLowerCase() !== 'dry matter'
-                })
-                setNutrients(newNutrients)
-            });
-    }, []);
-
+export default function AnimalGraph({labels, values}: GraphProps) {
     echarts.use([
         TooltipComponent,
         GridComponent,
@@ -94,7 +59,7 @@ export default function AnimalGraph() {
         },
         yAxis: {
             type: 'category',
-            data: nutrients.map((item: Nutrient) => item.nutrient.name.toLocaleLowerCase()),
+            data: labels,
             axisTick: {
                 alignWithLabel: true
             }
@@ -131,7 +96,7 @@ export default function AnimalGraph() {
                 itemStyle: {
                     borderRadius: 8
                 },
-                data: nutrients.map((nutrient: Nutrient) => nutrient.value),
+                data: values,
                 type: 'bar',
                 barWidth: 10,
                 markPoint: {

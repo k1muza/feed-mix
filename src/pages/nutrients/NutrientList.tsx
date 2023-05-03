@@ -1,61 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { getIngredients } from '../api';
-import Graph from '../components/graphs/IngredientGraph';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 import clsx from 'clsx';
+import { NavLink, Outlet } from 'react-router-dom';
+import { getNutrients } from '../../api';
+import { Nutrient } from '../../interfaces/nutrient';
 
-type IngredientNutrient = {
-    id: number;
-    value: number;
-    nutrient: {
-        id: number,
-        name: string,
-        unit: string,
-    };
-}
-
-interface Ingredient {
-    id: number;
-    name: string;
-    nutrients: IngredientNutrient[];
-}
-
-function IngredientList(props: any) {
-    const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+function NutrientsTable() {
+    const [nutrients, setNutrients] = useState<Nutrient[]>([]);
 
     const navClasses = clsx(
-        "flex items-center flex-shrink-0 h-10 px-2 text-sm font-medium rounded hover:bg-gray-300"
+        'flex items-center flex-shrink-0 h-10 px-4 text-sm font-medium rounded hover:bg-gray-300',
     )
 
     useEffect(() => {
-        getIngredients()
-            .then(response => {
-                setIngredients(response.data)
+        getNutrients()
+            .then(data => {
+                setNutrients(data)
             });
     }, []);
 
     return (
         <>
             <div className="flex flex-col w-80 border-r border-gray-300">
-                <button className="relative text-sm focus:outline-none group">
+                <button className="relative text-sm focus:outline-none">
                     <div className="flex items-center w-full h-16 px-8 border-b border-gray-300 hover:bg-gray-300">
-                        <i className="fa fa-wheat-awn mr-4"></i>
-                        <span className="font-bold">Ingredients</span>
+                        <i className="fa fa-bolt mr-4"></i>
+                        <span className="font-bold">Nutrients</span>
                     </div>
                 </button>
                 <div className="flex flex-col flex-grow p-4 overflow-auto">
-                    {ingredients.map((ingredient) => (
+                    {nutrients.map((nutrient) => (
                         <NavLink
-                            to={`/ingredients/${ingredient.id}`}
-                            key={ingredient.id}
+                            to={`/nutrients/${nutrient.id}`}
+                            key={nutrient.id}
                             className={({ isActive, isPending }) =>
                                 clsx(navClasses, {
                                     pending: isPending,
                                     'bg-gray-300': isActive,
-                                })
-                            }
-                        >
-                            <p className='px-4'>{ingredient.name}</p>
+                                })}>
+                            <p className='px-4'>{nutrient?.name}</p>
                         </NavLink>
                     ))}
                     <a className="flex items-center flex-shrink-0 h-10 px-3 mt-auto text-sm font-medium bg-gray-200 rounded hover:bg-gray-300" href="#">
@@ -71,4 +54,4 @@ function IngredientList(props: any) {
     );
 }
 
-export default IngredientList;
+export default NutrientsTable;

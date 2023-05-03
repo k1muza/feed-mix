@@ -13,29 +13,9 @@ import {
     ToolboxComponent,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
-import { getIngredients } from '../../api';
+import { GraphProps } from '../../interfaces/graphProps';
 
-interface Nutrient {
-    id: number;
-    value: number;
-    description: string;
-    nutrient: {
-        id: number;
-        name: string;
-        description: string;
-        unit: string;
-    }
-}
-
-interface Ingredient {
-    id: number;
-    name: string;
-    description: string;
-    unit: string;
-    nutrients: Nutrient[];
-}
-
-export default function IngredientGraph({ingredient, nutrients}: {ingredient: Ingredient, nutrients: Nutrient[]}) {
+export default function IngredientGraph({labels, values}: GraphProps) {
 
     echarts.use([
         TooltipComponent,
@@ -82,7 +62,7 @@ export default function IngredientGraph({ingredient, nutrients}: {ingredient: In
         },
         yAxis: {
             type: 'category',
-            data: nutrients.map((item: Nutrient) => item.nutrient.name.toLocaleLowerCase()),
+            data: labels,
             axisTick: {
                 alignWithLabel: true
             }
@@ -119,7 +99,7 @@ export default function IngredientGraph({ingredient, nutrients}: {ingredient: In
                 itemStyle: {
                     borderRadius: 8
                 },
-                data: nutrients.map((nutrient: Nutrient) => nutrient.value),
+                data: values,
                 type: 'bar',
                 barWidth: 10,
                 markPoint: {

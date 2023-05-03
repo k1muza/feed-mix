@@ -1,48 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { getIngredients } from '../api';
-import FeedGraph from '../components/graphs/FeedGraph';
+import { useEffect, useState } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
 
-type IngredientNutrient = {
-    id: number;
-    value: number;
-    nutrient: {
-        id: number,
-        name: string,
-        unit: string,
-    };
-}
-
-interface Ingredient {
-    id: number;
-    name: string;
-    nutrients: IngredientNutrient[];
-}
+import { getAnimals, getDefaultFeed, getFeed, getIngredients } from '../../api';
+import FeedGraph from '../../components/graphs/FeedGraph';
+import { Animal } from '../../interfaces/animal';
+import { Feed } from '../../interfaces/feed';
+import { Ingredient } from '../../interfaces/ingredient';
+import { IngredientConcentration } from '../../interfaces/ingredientConcentration';
+import { NutrientConcentration } from '../../interfaces/nutrientConcentration';
+import { calculateFeedNutrients } from '../../utils';
 
 function FeedDetail() {
+    const { id } = useParams()
     const [ingredients, setIngredients] = useState<Ingredient[]>([]);
-    const [selectedIngredient, setSelectedIngredient] = useState<Ingredient | null>(null);
-    const animals = [
-        {
-            id: 1,
-            name: 'Hyline Brown - 8 weeks',
-        },
-        {
-            id: 2,
-            name: 'Large White - 32 weeks',
-        },
-        {
-            id: 3,
-            name: 'Duroc - 16 weeks',
-        }
-    ]
+    const [animals, setAnimals] = useState<Animal[]>([]);
     const [animal, setAnimal] = useState(animals[0]);
+    const [feed, setFeed] = useState<Feed>()
+    const [values, setValues] = useState<number[]>([])
+    const [labels, setLabels] = useState<string[]>([])
 
     useEffect(() => {
-        getIngredients()
-            .then(response => {
-                setIngredients(response.data)
-            });
+        const feedPromise: Promise<Feed> = id ? getFeed(parseInt(id)) : getDefaultFeed()
+
+        Promise.all([
+            feedPromise,
+            getIngredients(),
+            getAnimals()
+        ]).then(([feedData, ingredientsData, animalData]) => {
+            feedData.ingredientRatios = feedData.ingredientRatios.map((ing: IngredientConcentration) => {
+                ing.ingredient = ingredientsData.find((i: Ingredient) => i.id === ing.ingredientId)
+                return ing
+            })
+            const nutrients = calculateFeedNutrients(feedData)
+            const newValues: number[] = []
+            const newLabels: string[] = []
+            nutrients.forEach((item: NutrientConcentration) => {
+                newValues.push(item.value)
+                newLabels.push(item.nutrient.name)
+            })
+            setValues(newValues)
+            setLabels(newLabels)
+            setIngredients(ingredientsData)
+            setFeed(feedData)
+            setAnimals(animalData)
+        })
     }, []);
+
+    function handleRatioChange(ingredient: Ingredient, proportion: number) {
+
+    }
 
     return (
         <>
@@ -57,7 +63,15 @@ function FeedDetail() {
                     {ingredients.map((ingredient) => (
                         <div className="flex items-center flex-shrink-0 h-10 px-2 text-sm font-medium rounded hover:bg-gray-300"
                             key={ingredient.id}>
-                            <input type="checkbox" className='mr-4' name={ingredient.id.toString()} id={ingredient.id.toString()} />
+                            <input 
+                                type="number"   
+                                className='w-16 h-8 pl-2 text-right mr-4 border' 
+                                name={ingredient.id.toString()} id={ingredient.id.toString()} 
+                                value="1000" 
+                                onChange={(e) => {
+                                    handleRatioChange(ingredient, parseInt(e.target.value))
+                                }}
+                                />
                             <label htmlFor={ingredient.id.toString()} className="leading-none">{ingredient.name}</label>
                         </div>
                     ))}
@@ -76,7 +90,7 @@ function FeedDetail() {
                     </form>
                     <button className="relative w-64 text-sm focus:outline-none group">
                         <div className="flex items-center justify-between w-full h-16 px-4 border-b border-gray-300 hover:bg-gray-300">
-                            <span className="font-bold">{animal.name}</span>
+                            <span className="font-bold">{animal?.name}</span>
                             <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                             </svg>
@@ -94,10 +108,10 @@ function FeedDetail() {
                     </button>
                     <div className="flex">
                         <button className="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-300">
-                            Save
+                            Optimize
                         </button>
-                        <button className="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium bg-red-200 rounded hover:bg-gray-300">
-                            Delete
+                        <button className="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-300">
+                            Save
                         </button>
                         <button className="relative ml-2 text-sm focus:outline-none group">
                             <div className="flex items-center justify-between w-10 h-10 rounded hover:bg-gray-300">
@@ -106,14 +120,17 @@ function FeedDetail() {
                                 </svg>
                             </div>
                             <div className="absolute right-0 flex-col items-start hidden w-40 pb-1 bg-white border border-gray-300 shadow-lg group-focus:flex">
-                                <a className="w-full px-4 py-2 text-left hover:bg-gray-300" href="#">Menu Item 1</a>
-                                <a className="w-full px-4 py-2 text-left hover:bg-gray-300" href="#">Menu Item 1</a>
-                                <a className="w-full px-4 py-2 text-left hover:bg-gray-300" href="#">Menu Item 1</a>
+                                <NavLink
+                                    to={`/feeds/${feed?.id}/delete`}
+                                    className="w-full px-4 py-2 text-left hover:bg-gray-300"
+                                >
+                                    Delete Feed
+                                </NavLink>
                             </div>
                         </button>
                     </div>
                 </div>
-                <FeedGraph />
+                {labels?.length && values?.length && <FeedGraph labels={labels} values={values} />}
             </div>
         </>
     );

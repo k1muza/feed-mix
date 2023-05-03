@@ -1,29 +1,12 @@
-import React, { useEffect, useState } from "react";
-
-import { getFeeds } from '../api';
-import Graph from '../components/graphs/FeedGraph';
-import { NavLink, Outlet } from "react-router-dom";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
-type FeedNutrient = {
-    id: number;
-    value: number;
-    nutrient: {
-        id: number,
-        name: string,
-        unit: string,
-    };
-}
-
-interface Feed {
-    id: number;
-    name: string;
-    nutrients: FeedNutrient[];
-}
+import { getFeeds } from "../../api";
+import { Feed } from "../../interfaces/feed";
 
 function FeedList() {
     const [feeds, setFeeds] = useState<Feed[]>([]);
-    const [selectedFeed, setSelectedFeed] = useState<Feed | null>(null);
 
     const navClasses = clsx(
         "flex items-center flex-shrink-0 h-10 px-2 text-sm font-medium rounded hover:bg-gray-300"
@@ -31,8 +14,8 @@ function FeedList() {
 
     useEffect(() => {
         getFeeds()
-            .then(response => {
-                setFeeds(response.data)
+            .then(data => {
+                setFeeds(data)
             });
     }, []);
 

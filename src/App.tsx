@@ -1,20 +1,26 @@
-import React from 'react';
 import "@fortawesome/fontawesome-free/css/all.css";
 
-import TwitterButton from './components/buttons/TwitterButton';
-import FeedDetail from './pages/FeedDetail';
-import Sidebar from './components/sidebar/Sidebar';
 import { Route, Routes } from 'react-router-dom';
+import TwitterButton from './components/buttons/TwitterButton';
+import Sidebar from './components/sidebar/Sidebar';
+import AnimalDelete from "./pages/animals/AnimalDelete";
+import AnimalDetail from './pages/animals/AnimalDetail';
+import AnimalEdit from "./pages/animals/AnimalEdit";
+import AnimalList from './pages/animals/AnimalList';
+import AnimalNew from "./pages/animals/AnimalNew";
+import FeedDelete from './pages/feeds/FeedDelete';
+import FeedDetail from './pages/feeds/FeedDetail';
+import FeedEdit from './pages/feeds/FeedEdit';
+import FeedList from './pages/feeds/FeedList';
+import FeedNew from './pages/feeds/FeedNew';
+import IngredientDelete from "./pages/ingredients/IngredientDelete";
+import IngredientDetail from './pages/ingredients/IngredientDetail';
+import IngredientEdit from "./pages/ingredients/IngredientEdit";
+import IngredientList from './pages/ingredients/IngredientList';
+import IngredientNew from './pages/ingredients/IngredientNew';
 import NotFound from './pages/NotFound';
-import NutrientList from './pages/NutrientList';
-import IngredientList from './pages/IngredientList';
-import AnimalList from './pages/AnimalList';
-import FeedList from './pages/FeedList';
-import IngredientDetail from './pages/IngredientDetail';
-import IngredientNew from './pages/IngredientNew';
-import NutrientDetail from './pages/NutrientDetail';
-import FeedNew from './pages/FeedNew';
-import AnimalDetail from './pages/AnimalDetail';
+import NutrientDetail from './pages/nutrients/NutrientDetail';
+import NutrientList from './pages/nutrients/NutrientList';
 
 function App() {
 
@@ -57,19 +63,29 @@ function App() {
                 <Sidebar navItems={navItems} />
                 <Routes>
                     <Route path="/feeds" element={<FeedList />} >
+                        <Route index element={<FeedDetail />} />
                         <Route path=":id" element={<FeedDetail />} />
+                        <Route path=":id/edit" element={<FeedEdit />} />
+                        <Route path=":id/delete" element={<FeedDelete />} />
                         <Route path="new" element={<FeedNew />} />
                     </Route>
                     <Route path="/nutrients" element={<NutrientList />}>
+                        <Route index element={<NutrientDetail />} />
                         <Route path=":id" element={<NutrientDetail />} />
                     </Route>
                     <Route path="/ingredients" element={<IngredientList />}>
                         <Route index element={<IngredientDetail />} />
-                        <Route index path=":id" element={<IngredientDetail />} />
+                        <Route path=":id" element={<IngredientDetail />} />
+                        <Route path=":id/edit" element={<IngredientEdit />} />
+                        <Route path=":id/delete" element={<IngredientDelete />} />
                         <Route path="new" element={<IngredientNew />} />
                     </Route>
                     <Route path="/animals" element={<AnimalList />}>
+                        <Route index element={<AnimalDetail />} />
                         <Route path=":id" element={<AnimalDetail />} />
+                        <Route path=":id/edit" element={<AnimalEdit />} />
+                        <Route path=":id/delete" element={<AnimalDelete />} />
+                        <Route path="new" element={<AnimalNew />} />
                     </Route>
                     <Route path="*" element={<NotFound />} />
                 </Routes>

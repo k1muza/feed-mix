@@ -1,44 +1,16 @@
-import React, { useEffect, useState } from 'react'; import * as echarts from 'echarts/core';
+import * as echarts from 'echarts/core';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import { BarChart } from 'echarts/charts';
 import {
-    GridComponent,
-    LegendComponent,
-    TooltipComponent
+  GridComponent,
+  LegendComponent,
+  TooltipComponent
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
-import { getIngredients } from '../../api';
+import { GraphProps } from '../../interfaces/graphProps';
 
-interface Nutrient {
-    id: number;
-    value: number;
-    description: string;
-    nutrient: {
-        id: number;
-        name: string;
-        description: string;
-        unit: string;
-    }
-}
-
-interface Ingredient {
-    id: number;
-    name: string;
-    description: string;
-    unit: string;
-    nutrients: Nutrient[];
-}
-
-export default function IngredientGraph() {
-    const [ingredients, setIngredients] = useState<Ingredient[]>([]);
-
-    useEffect(() => {
-        getIngredients()
-            .then(response => {
-                setIngredients(response.data)
-            });
-    }, []);
+export default function NutrientGraph({labels, values}: GraphProps) {
 
     echarts.use([
         TooltipComponent,
@@ -71,19 +43,13 @@ export default function IngredientGraph() {
         },
         yAxis: {
           type: 'category',
-          data: ingredients.map((ingredient: Ingredient) => {
-              return ingredient.name.toLocaleLowerCase()
-          })
+          data: labels
         },
         series: [
           {
             name: 'Concentration',
             type: 'bar',
-            data: ingredients.map((ingredient: Ingredient) => {
-                return {
-                    value: ingredient.nutrients[1].value
-                }
-            }),
+            data: values,
             itemStyle: {
                 barBorderRadius: 5,
             },

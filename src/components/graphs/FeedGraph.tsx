@@ -1,144 +1,115 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; import * as echarts from 'echarts/core';
+
 import ReactEChartsCore from 'echarts-for-react/lib/core';
-import * as echarts from 'echarts/core';
 import { BarChart } from 'echarts/charts';
 import {
     GridComponent,
     LegendComponent,
-    TooltipComponent
+    TooltipComponent,
+    MarkPointComponent,
+    DataZoomComponent,
+    DataZoomInsideComponent,
+    DataZoomSliderComponent,
+    ToolboxComponent,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
-import { getNutrients } from '../../api';
+import { GraphProps } from '../../interfaces/graphProps';
 
-interface Nutrient {
-    id: number;
-    name: string;
-    description: string;
-    unit: string;
-}
-
-const Graph: React.FC = () => {
-    const [nutrients, setNutrients] = useState<Nutrient[]>([]);
-    const [targets, setTargets] = useState<number[]>([]);
-
-    useEffect(() => {
-        getNutrients()
-            .then(response => {
-                const nutrients = response.data.filter((item: Nutrient) => {
-                    return item.unit == '%' && !item.name.includes('total')
-                })
-                setNutrients(nutrients)
-            });
-    }, []);
-
-
-    function randomWithDeviation(mean: number, deviation: number) {
-        const output = mean - (Math.floor(Math.random() * deviation) / 2) + (Math.floor(Math.random() * deviation) / 2);
-        return Math.abs(output);
-    }
-
-    useEffect(() => {
-        const targets = nutrients.map((nutrient: Nutrient) => {
-            return Math.floor(Math.random() * 100)
-        })
-        setTargets(targets)
-    }, [nutrients])
+export default function FeedGraph({labels, values}: GraphProps) {
 
     echarts.use([
         TooltipComponent,
+        ToolboxComponent,
         GridComponent,
         LegendComponent,
         BarChart,
+        MarkPointComponent,
+        DataZoomComponent,
+        DataZoomInsideComponent,
+        DataZoomSliderComponent,
         CanvasRenderer,
-        
     ]);
 
     const option = {
-        title: {
-            text: 'Current vs Target',
-            subtext: 'Fake Data'
-        },
         tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            data: [
-                {
-                    name: 'Current',
-                    icon: 'circle',
-                    itemStyle: {
-                        color: '#73c0de'
-                    }
-                },
-                {
-                    name: 'Target',
-                    icon: 'circle',
-                    itemStyle: {
-                        color: '#ddd'
-                    }
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow',
+                label: {
+                    show: true
                 }
-            ]
+            }
         },
         toolbox: {
             show: true,
             feature: {
+                mark: { show: true },
                 dataView: { show: true, readOnly: false },
                 magicType: { show: true, type: ['line', 'bar'] },
                 restore: { show: true },
                 saveAsImage: { show: true }
             }
         },
+        legend: {
+            data: ['Concentration']
+        },
         calculable: true,
+        grid: {
+            top: '12%',
+            left: '1%',
+            right: '10%',
+            containLabel: true
+        },
+        yAxis: {
+            type: 'category',
+            data: labels,
+            axisTick: {
+                alignWithLabel: true
+            }
+        },
         xAxis: [
             {
-                type: 'category',
-                data: nutrients.map((nutrient) => {
-                    return nutrient.name
-                })
+                type: 'value',
             }
         ],
-        yAxis: [
+        dataZoom: [
             {
-                type: 'value'
+                show: true,
+                start: 0,
+                end: 100
+            },
+            {
+                type: 'inside',
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                yAxisIndex: 0,
+                filterMode: 'empty',
+                width: 30,
+                height: '80%',
+                showDataShadow: false,
+                left: '93%'
             }
         ],
         series: [
             {
-                name: 'Current',
-                type: 'bar',
-                data: nutrients.map((nutrient, index) => {
-                    const value = randomWithDeviation(targets[index], 20)
-                    return {
-                        value,
-                        itemStyle: {
-                            color: value > targets[index] ? '#73c0de' : '#f56c6c'
-                        }
-                    }
-                }),
-                barWidth: 10,
+                name: 'Concentration',
                 itemStyle: {
-                    barBorderRadius: 5,
+                    borderRadius: 8
                 },
-            },
-            {
-                name: 'Target',
+                data: values,
                 type: 'bar',
-                data: targets.map(target => {
-                    return {
-                        value: target,
-                        itemStyle: {
-                            color: '#dddddd'
-                        }
-                    }
-                }),
                 barWidth: 10,
-                itemStyle: {
-                    barBorderRadius: 5,
-                },
+                markPoint: {
+                    data: [
+                        { type: 'max', name: 'Max' }
+                    ]
+                }
             }
-        ],
+        ]
     };
-
 
     return (
         <div className="flex-grow p-6 overflow-auto bg-gray-200">
@@ -154,6 +125,4 @@ const Graph: React.FC = () => {
             </div>
         </div>
     );
-};
-
-export default Graph;
+}
